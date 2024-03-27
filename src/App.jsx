@@ -6,7 +6,10 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import { Button } from "@chakra-ui/react";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    const token = localStorage.getItem("access_token");
+    return token !== null;
+  });
 
   const handleLogin = (token) => {
     localStorage.setItem("access_token", token);
