@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Heading, VStack, Text, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 const SUPABASE_URL = "https://vdnhjxmsuykhvhnvjupi.supabase.co";
-const SUPABASE_API_KEY = "YOUR_SUPABASE_API_KEY";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkbmhqeG1zdXlraHZobnZqdXBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk4MjIyNjUsImV4cCI6MjAyNTM5ODI2NX0.byaihexABIEbRtnd1-n8R33kkt4lIwcB1xsX6P6PUA8";
 
 const Index = () => {
   const [transactions, setTransactions] = useState([]);
@@ -14,8 +14,8 @@ const Index = () => {
     try {
       const response = await fetch(`${SUPABASE_URL}/rest/v1/transactions?order=created_at.desc`, {
         headers: {
-          apikey: SUPABASE_API_KEY,
-          Authorization: `Bearer ${SUPABASE_API_KEY}`,
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
         },
       });
 
