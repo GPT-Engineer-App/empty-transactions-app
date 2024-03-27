@@ -64,7 +64,12 @@ const Index = () => {
           apikey: SUPABASE_ANON_KEY,
           Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
         },
-        body: JSON.stringify(updatedTransaction),
+        body: JSON.stringify({
+          date: updatedTransaction.date,
+          amount: updatedTransaction.amount,
+          type: updatedTransaction.type,
+          category: updatedTransaction.category,
+        }),
       });
       fetchTransactions();
       onClose();
