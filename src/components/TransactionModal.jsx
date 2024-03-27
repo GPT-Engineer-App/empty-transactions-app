@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 
 const TransactionModal = ({ isOpen, onClose, transaction, onUpdate }) => {
-  const [updatedTransaction, setUpdatedTransaction] = useState(transaction || {});
+  const [updatedTransaction, setUpdatedTransaction] = useState(transaction ? { ...transaction, id: transaction.id } : {});
 
   const handleChange = (e) => {
     setUpdatedTransaction({ ...updatedTransaction, [e.target.name]: e.target.value });

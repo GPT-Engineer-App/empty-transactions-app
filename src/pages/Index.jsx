@@ -36,7 +36,7 @@ const Index = () => {
   const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   const handleEdit = (transaction) => {
-    setSelectedTransaction(transaction);
+    setSelectedTransaction({ ...transaction, id: transaction.id });
     onOpen();
   };
 
@@ -57,7 +57,7 @@ const Index = () => {
 
   const handleUpdate = async (updatedTransaction) => {
     try {
-      await fetch(`${SUPABASE_URL}/rest/v1/transactions?id=eq.${updatedTransaction.id}`, {
+      await fetch(`${SUPABASE_URL}/rest/v1/transactions?id=eq.${selectedTransaction.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
