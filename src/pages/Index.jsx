@@ -5,7 +5,7 @@ import TransactionModal from "../components/TransactionModal";
 const SUPABASE_URL = "https://vdnhjxmsuykhvhnvjupi.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkbmhqeG1zdXlraHZobnZqdXBpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk4MjIyNjUsImV4cCI6MjAyNTM5ODI2NX0.byaihexABIEbRtnd1-n8R33kkt4lIwcB1xsX6P6PUA8";
 
-const Index = () => {
+const Index = ({ isAuthenticated }) => {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
